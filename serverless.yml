@@ -1,0 +1,35 @@
+service: temp-2-aws-python
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  exclude:
+    - "**"
+  include:
+    - "*.py"
+    # - "**/*.py"
+
+custom:
+  pythonRequirements:
+    usePipenv: true
+    # layer: true
+
+provider:
+  name: aws
+  runtime: python3.10
+
+functions:
+  hello:
+    handler: main.lambda_handler
+    # layers:
+    #   - Ref: PythonRequirementsLambdaLayer
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true

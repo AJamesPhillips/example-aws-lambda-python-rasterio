@@ -1,0 +1,14 @@
+{
+  "name": "temp-2-aws-python",
+  "version": "1.0.0",
+  "description": "poetry install --no-root     serverless deploy --verbose --stage staging --region eu-west-1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-python-requirements": "^6.0.1"
+  }
+}
