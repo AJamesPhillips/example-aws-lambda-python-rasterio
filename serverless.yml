@@ -21,11 +21,17 @@ custom:
 
 provider:
   name: aws
-  runtime: python3.10
+  # runtime: python3.10
+  ecr:
+    images:
+      myDockerImage:
+        path: ./Dockerfile
 
 functions:
   hello:
     handler: main.lambda_handler
+    image:
+      name: myDockerImage
     # layers:
     #   - Ref: PythonRequirementsLambdaLayer
     events:
