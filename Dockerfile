@@ -18,4 +18,7 @@ RUN pip3 install --upgrade pip
 RUN pip3 install rasterio
 
 # Copy the main.py file into the Docker image
-COPY main.py /var/task/
+COPY main.py ./
+
+# You can overwrite command in `serverless.yml` template
+CMD ["main.lambda_handler"]

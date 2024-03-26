@@ -24,14 +24,16 @@ provider:
   # runtime: python3.10
   ecr:
     images:
-      myDockerImage:
-        path: ./Dockerfile
+      testing-ajp-rasterio-docker-img:
+        path: ./  # will resolve to "./Dockerfile"
 
 functions:
   hello:
-    handler: main.lambda_handler
     image:
-      name: myDockerImage
+      name: testing-ajp-rasterio-docker-img
+      command:
+        - main.lambda_handler
+
     # layers:
     #   - Ref: PythonRequirementsLambdaLayer
     events:
